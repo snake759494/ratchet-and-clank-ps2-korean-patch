@@ -22,3 +22,4 @@ overlays.pkl
 # 파이썬
 __pycache__/
 *.pyc
+movie/

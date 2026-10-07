@@ -238,6 +238,17 @@ def main(test=False):
     assert len(comp) <= osz, 'HUD 압축 초과'
     iso.write(off // 2048, comp)
     print('START 버튼 이미지 완료')
+    # 동영상 자막 (movie/enc/V###.PSS, 원본과 같은 크기)
+    import movie_extract
+    nm = 0
+    for idx, lba, size in movie_extract.movie_entries():
+        p = os.path.join(WORK, 'movie', 'enc', 'V%03d.PSS' % idx)
+        if os.path.exists(p):
+            mv = open(p, 'rb').read()
+            assert len(mv) == size, p
+            iso.write(lba, mv); nm += 1
+    print('동영상 자막 %d편' % nm)
+
     # 레벨 코드 오버레이 패치
     for n, (tbl_off, fd) in enumerate(ovs, start=1):
         elfpatch.patch_overlay(iso.pread, iso.pwrite, tbl_off, fd, labels, n)
