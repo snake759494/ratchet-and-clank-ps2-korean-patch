@@ -1,0 +1,62 @@
+# 라쳇 & 클랭크 (PS2) 한글패치
+
+PS2 일본판 **ラチェット&クランク (SCPS-15037)** 용 비공식 한국어 패치입니다. 메뉴·도움말·가제트 설명·레벨 안내 등 게임 텍스트 전체와 컷신 자막을 한국어로 바꾸고, 원래 없던 한글 출력을 추가했습니다. 컷신 자막은 기본으로 켜져 있습니다. 현재 배포판은 **v1.2 (2026-10-07)** 입니다.
+
+[패치 다운로드](https://github.com/snake759494/ratchet-and-clank-ps2-korean-patch/releases/latest) · [기술 설명](docs/TECHNICAL.md) · [재빌드](docs/BUILD.md) · [변경 기록](CHANGELOG.md) · [권리 안내](RIGHTS.md)
+
+릴리즈 첨부 파일은 **Ratchet_and_Clank_PS2_KO_v1.2.xdelta 하나**입니다. 저장소에는 제작 도구·문서·검증 자료만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본 전문은 포함하지 않습니다. GitHub 가 자동 생성하는 Source code ZIP/TAR 는 저장소 소스의 압축본이며 게임 파일이 아닙니다.
+
+## 대상 버전
+
+이 패치는 **PS2 일본판 SCPS-15037 의 DVD ISO (2,048 바이트 섹터)** 에만 적용합니다. 파일 이름보다 아래 크기와 해시가 일치하는지가 중요합니다.
+
+| 항목 | 값 |
+| --- | --- |
+| 게임 ID | SCPS-15037 |
+| 원본 형식 | 수정되지 않은 일본판 DVD ISO |
+| 원본 ISO 크기 | 1,807,187,968 바이트 |
+| **원본 ISO MD5** | `d52141b6b229282ede00585c6168ca44` |
+| 원본 ISO SHA-256 | `e1ef4b23df593f469f1be60a946a61899c67b6204e2bf0cd93c66a6c2c92faeb` |
+| xdelta 파일 크기 | 46,833,447 바이트 |
+| xdelta SHA-256 | `fab806cf8301c0d431df4f77b899ccbdf4865bfe21483dad8bc87edd16fe80ef` |
+| 적용 결과 ISO 크기 | 1,807,187,968 바이트 (원본과 같음) |
+| 적용 결과 ISO SHA-256 | `4fd4e1d9a824e61d7c56e12356f68119d0e9ef57f9978af2a45c7510ca29da94` |
+
+## 패치 적용 방법
+
+### Windows 에서 원본 확인
+
+```powershell
+Get-FileHash -Algorithm MD5 -LiteralPath '.\Ratchet & Clank (Japan).iso'
+```
+
+위 표와 다르면 적용을 중단하세요. CHD·CSO 등으로 변환한 이미지에는 적용할 수 없습니다.
+
+### xdelta UI 사용
+
+1. 릴리즈에서 `Ratchet_and_Clank_PS2_KO_v1.2.xdelta` 를 받습니다.
+2. xdelta3 패치를 지원하는 도구의 **Apply Patch** 기능을 엽니다.
+3. **Patch** 에 xdelta 파일, **Source File** 에 해시가 일치하는 원본 `.iso` 를 선택합니다.
+4. **Output File** 에 새 파일명(예: `Ratchet & Clank (Japan) (Korean).iso`)을 지정합니다.
+
+xdelta 는 호환성을 위해 2차 압축과 파일 경로 헤더 없이 만들었습니다(`-e -9 -S none -A`).
+
+### 명령줄 사용
+
+```powershell
+.\xdelta3.exe -d -s '.\Ratchet & Clank (Japan).iso' '.\Ratchet_and_Clank_PS2_KO_v1.2.xdelta' '.\Ratchet & Clank (Japan) (Korean).iso'
+```
+
+## 한글화 범위
+
+- 전역 텍스트 1,741항목: 메뉴, 옵션, 메모리 카드 메시지, 도움말, 무기·가제트 설명, 보너스 메뉴
+- 레벨 19개의 텍스트 표 전체: 미션, 헬프 데스크 안내, 상점, 획득 메시지, 짧은 대사 (고유 문장 1,661개)
+- 컷신 자막 648문장 (장면 파일 1,644개), **자막 기본값 "켜기"**
+- 한글 글꼴 880자 (NanumSquare Neo Bold, 원본 글꼴의 둥근 고딕과 굵기·크기를 맞춤)
+- 글자 그림: 컷신 타이틀 카드 17장, 타이틀 화면 "START 버튼"
+- 그대로 둔 것: 타이틀 로고(공식 로고 아트), 3D 배경에 그려진 간판, 스태프 크레디트(영문)
+
+## 알려진 점
+
+- PCSX2 에서 부팅, 타이틀, 메인 메뉴, 세이브 화면, 오프닝 컷신, 레벨 안의 포즈 메뉴·무기·도움말·옵션 화면을 확인했습니다. 대사가 있는 컷신의 자막 표시는 데이터 검증만 했고, 전체 스토리 완주와 실기 확인은 하지 않았습니다.
+- 글자가 잘리거나 일본어가 남은 화면을 발견하면 이슈로 스크린샷과 함께 알려 주세요.
