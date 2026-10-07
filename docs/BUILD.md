@@ -12,6 +12,7 @@ python tools/prepare.py    # ELF·원본 폰트·원문 목록 생성 (text/, lv
 python tools/movie_extract.py   # 동영상·음성 추출 (movie/orig, movie/wav)
 python tools/movie_asr.py       # (선택) 받아쓰기 -> movie/asr/*.json (pip install faster-whisper)
 python tools/movie_sub.py       # movie/subs/*.tsv 로 자막 합성 -> movie/enc/*.PSS (pip install av imageio-ffmpeg numpy)
+python tools/movie_check.py     # 동영상 타이밍·화질 검사 (문제 0 이어야 함)
 python tools/build.py      # 결과 ISO 생성
 python tools/verify.py     # 결과 ISO 전수검사 (총 오류 0 이어야 함)
 ```

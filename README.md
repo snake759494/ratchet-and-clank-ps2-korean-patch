@@ -1,10 +1,10 @@
 # 라쳇 & 클랭크 (PS2) 한글패치
 
-PS2 일본판 **ラチェット&クランク (SCPS-15037)** 용 비공식 한국어 패치입니다. 메뉴·도움말·가제트 설명·레벨 안내 등 게임 텍스트 전체와 컷신 자막을 한국어로 바꾸고, 일본어 음성만 나오던 동영상 31편에 한국어 자막을 넣었으며, 원래 없던 한글 출력을 추가했습니다. 컷신 자막은 기본으로 켜져 있습니다. 현재 배포판은 **v1.3 (2026-10-08)** 입니다.
+PS2 일본판 **ラチェット&クランク (SCPS-15037)** 용 비공식 한국어 패치입니다. 메뉴·도움말·가제트 설명·레벨 안내 등 게임 텍스트 전체와 컷신 자막을 한국어로 바꾸고, 일본어 음성만 나오던 동영상 31편에 한국어 자막을 넣었으며, 원래 없던 한글 출력을 추가했습니다. 컷신 자막은 기본으로 켜져 있습니다. 현재 배포판은 **v1.4 (2026-10-08)** 입니다.
 
 [패치 다운로드](https://github.com/snake759494/ratchet-and-clank-ps2-korean-patch/releases/latest) · [기술 설명](docs/TECHNICAL.md) · [재빌드](docs/BUILD.md) · [변경 기록](CHANGELOG.md) · [권리 안내](RIGHTS.md)
 
-릴리즈 첨부 파일은 **Ratchet_and_Clank_PS2_KO_v1.3.xdelta 하나**입니다. 저장소에는 제작 도구·문서·검증 자료만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본 전문은 포함하지 않습니다. GitHub 가 자동 생성하는 Source code ZIP/TAR 는 저장소 소스의 압축본이며 게임 파일이 아닙니다.
+릴리즈 첨부 파일은 **Ratchet_and_Clank_PS2_KO_v1.4.xdelta 하나**입니다. 저장소에는 제작 도구·문서·검증 자료만 공개합니다. 원본 및 완성 디스크 이미지, 추출한 게임 파일, 글꼴 파일, 외부 실행 파일, 일본어 원문, 번역 대본 전문은 포함하지 않습니다. GitHub 가 자동 생성하는 Source code ZIP/TAR 는 저장소 소스의 압축본이며 게임 파일이 아닙니다.
 
 ## 대상 버전
 
@@ -17,10 +17,10 @@ PS2 일본판 **ラチェット&クランク (SCPS-15037)** 용 비공식 한국
 | 원본 ISO 크기 | 1,807,187,968 바이트 |
 | **원본 ISO MD5** | `d52141b6b229282ede00585c6168ca44` |
 | 원본 ISO SHA-256 | `e1ef4b23df593f469f1be60a946a61899c67b6204e2bf0cd93c66a6c2c92faeb` |
-| xdelta 파일 크기 | 483,139,126 바이트 |
-| xdelta SHA-256 | `ef0d0b47f3c2ba1ab93fba058e5dd051c52eeb79eccacb0bbb6a9cc4a7cd2994` |
+| xdelta 파일 크기 | 400,644,750 바이트 |
+| xdelta SHA-256 | `98b2e30965ce92689f9751f6d0a3181c02c23d847059ff3e6b96b0df6f8203b5` |
 | 적용 결과 ISO 크기 | 1,807,187,968 바이트 (원본과 같음) |
-| 적용 결과 ISO SHA-256 | `d874f8d363653451c4fb2961a696b54a1520cb20f870ab5e019c959ab4d2acc2` |
+| 적용 결과 ISO SHA-256 | `971d8018c76477a3cba633bb12dd45f5bfda51beba8bffba72400fe7be78e578` |
 
 ## 패치 적용 방법
 
@@ -34,7 +34,7 @@ Get-FileHash -Algorithm MD5 -LiteralPath '.\Ratchet & Clank (Japan).iso'
 
 ### xdelta UI 사용
 
-1. 릴리즈에서 `Ratchet_and_Clank_PS2_KO_v1.3.xdelta` 를 받습니다.
+1. 릴리즈에서 `Ratchet_and_Clank_PS2_KO_v1.4.xdelta` 를 받습니다.
 2. xdelta3 패치를 지원하는 도구의 **Apply Patch** 기능을 엽니다.
 3. **Patch** 에 xdelta 파일, **Source File** 에 해시가 일치하는 원본 `.iso` 를 선택합니다.
 4. **Output File** 에 새 파일명(예: `Ratchet & Clank (Japan) (Korean).iso`)을 지정합니다.
@@ -44,7 +44,7 @@ xdelta 는 호환성을 위해 2차 압축과 파일 경로 헤더 없이 만들
 ### 명령줄 사용
 
 ```powershell
-.\xdelta3.exe -d -s '.\Ratchet & Clank (Japan).iso' '.\Ratchet_and_Clank_PS2_KO_v1.3.xdelta' '.\Ratchet & Clank (Japan) (Korean).iso'
+.\xdelta3.exe -d -s '.\Ratchet & Clank (Japan).iso' '.\Ratchet_and_Clank_PS2_KO_v1.4.xdelta' '.\Ratchet & Clank (Japan) (Korean).iso'
 ```
 
 ## 한글화 범위
